@@ -1,0 +1,246 @@
+
+
+Ask or Search Quora
+Ask Question
+Read
+Answer
+Notifications
+3
+Kuan Min ShengKuan
+Learning to Program
+How difficult is it for the average person to become a computer programmer?
+Answer
+Request
+Follow2.4k
+Comment
+Share9Downvote
+100+ Answers
+Rachel Fong
+Rachel Fong, software dev, recent MIT grad
+47.5k Views
+Originally Answered: How does one go about starting to code?
+language
+If you have never coded before, I would start with Python since it's versatile, the syntax is very simple, and it's easy to get started. C/C++ for the ballsier beginners, though it'll be painful to get your very first line of code running. Perhaps Haskell/Scheme if you're a mathematician. Try Javascript if you only want to do web development. I personally wouldn't pick Javascript as a first language since it tolerates poor programming practices, which will come back to bite you.
+
+setup
+A full IDE is overkill for a beginner (they are more typical when building enterprise software). Get a simple text editor with syntax highlighting, such as Sublime Text. Don't just use Notepad. Real text editors will make your coding experience far less painful.
+
+Start out doing simple things -- try to just print out information and manipulate data, for example printing out a fibonacci sequence. Once you know how to run simple programs, you might try free online courses like Coursera or Code Academy, or look at intro courses that universities have posted online (like MIT's OpenCourseWare).
+
+Use Google and StackOverflow liberally. (StackOverflow is basically Quora for coding questions.)
+
+next steps
+Start thinking of little projects and coding them up for yourself. A stopwatch, a tic-tac-toe game, things like that. Working on your own projects is the most motivating way to learn.
+Learn how to use the terminal. You should also learn how to use a text editor that works in the terminal, like vim or emacs.
+At this point if you just want to make websites, you can skip all the following steps and start learning a web framework. Django and Ruby on Rails are the two most popular ones. There are innumerable treatises written elsewhere on their various pros and cons.
+
+classic books that will make you better, stronger, faster
+SICP Structure and Interpretation of Computer Programs by Abelson, Sussman, and Sussman. An awesome book covering many fundamental programming concepts and paradigms. It uses the Scheme language in examples.
+K&R The C Programming Language by Kernighan and Ritchie. C will force you to learn some interesting concepts and become a better programmer. I'm sure this sounds bizarre to non-programmers. The gist of it is that it doesn't tolerate carelessness and exposes low-level interaction with the computer that isn't available in many of the "easier" languages, allowing you to manipulate data in interesting ways.
+CLRS Introduction to Algorithms by Cormen, Leiserson, Rivest, and Stein. The standard CS bible/textbook on algorithms.
+We like our acronyms. It's all about efficiency, man.
+
+mindset & tips
+This all comes to mind because I was recently deconstructing the frustrations of some noncoder friends who had taken intro programming classes. I came up with a list of helpful coding practices / ways of thinking that were intuitive to me but not at all obvious to them:
+Ask dumb questions, and don't be ashamed. I'm talking questions like, What is a server? How does a variable work? How do I print in C? Just ask it. This was new to everyone at some point. Ask Google first if you don't want to ask a coder.
+Persistence. Don't give up. Keep asking dumb questions until you figure it out. Ask Google, ask people, ask your computer (print statements, debugger).
+Something I hear a lot is "I don't even know where to start." Ask incremental questions as well as dumb ones. Building a game? How does a video game work? Ah, it has a graphics engine. How does a graphics engine work? How do I make a graphics engine?
+Sometimes you have no idea why you're getting a bug. Again, ask incremental questions given whatever knowledge you have. For example, integer overflow. Why did my very large positive number become negative?
+It's valuable to know a little about computer architecture and the architecture of whatever other software you're working on top of. At least learn how registers, memory, and stacks work.
+Computers are not magic. Everything happens for a reason. Yeah, it's frustrating when just recompiling changes your code's behavior. Figure out that reason. Ask yourself really obvious questions, and ask questions that have nothing to do with the code you wrote. Are these software packages even compatible? is a common culprit. Look at your evidence and trace it back to the source. Understand why it happens.
+Love coding and computer science. This is not necessary, but extremely helpful in getting better at it.
+Updated Apr 21, 2013 · View Upvotes
+Upvote382DownvoteComments8+
+Share
+Azat Mardan
+Azat Mardan, Growth hacker & team lead & software engineer @DocuSign, author of 6 books, a...
+24.7k Views
+Originally Answered: How does one become a good software engineer?
+I agree with Shawn Drost. Also I gave an answer to the Silicon Valley: How do you become good enough a programmer to work at a top-notch Silicon Valley company? question which is pretty much silimar to yours because Silicon Valley is a Mecca for good (and excellent) software engineers.
+
+study a lot
+love what you do
+be curious
+share/teach others (meetups, workshops)
+learn from others (meetups, hackathons)
+go extra mile: if somebody asks you to do X do X+1
+give your self time: Teach Yourself Programming in Ten Years
+promote the hell out of yourself, don't be shy
+create beautiful (code-wise) things
+
+All of the principles can be applied to any other job. :)
+Updated Jun 19, 2013 · View Upvotes
+Upvote31DownvoteComment
+Share
+James Dowdell
+James Dowdell
+41.3k Views
+You're in luck!  I like to think that legal contracts are just human programs written in English and not code; your experience with them should make learning to program easy.
+
+1) Choose bottom up or top down.
+
+Bottom up programmers love GIT (a paradigm and tool for getting and sharing computer code); tend to love the Agile method (Agile software development); value writing code over planning code and shipping code over bug-free code; and generally proceed with a lore-based approach.  They'll tell you that the best way to start is just to start coding, reading, doing; and that you'll slowly flood fill your way through the space.  These tend to have an engineering background.  If you join a company and ask to see the internal documentation and someone laughs at you, you're with a bunch of bottom ups.
+
+Top down types, in contrast, may recommend going to get a degree first; put focus on reading and writing design documents; recommend and enforce strict adherence to style guides (the equivalent of grammar nazis in the written-English world); feature a lot more abstraction in their discussion, planning, and thinking (a chief source of 'over-engineering'); are accused of crossing bridges they haven't come to yet; and will recommend that you choose some overall targets in your quest to learn coding, and work constructively towards them.  These tend to have an academic, or (pure) mathematical, background.
+
+I'm a top down type, so that will color my advice accordingly.  If you're a bottom up, you'll probably want to pay attention to bottom up advice.  But hopefully what else I have to say will be somewhat useful.
+
+2) Choose your field.  There are lots of different kinds of programming; I'll categorize the bulk of most programmers into three types (controversial):
+
+  A) "near the metal", a.k.a. hardware programming.  These are the people who program non-smart phones and device drivers.  They dovetail with mechanical and electrical/computer engineering.  They think in terms of voltages and 1's and 0's and clocks and caches and "fan out."  These types tend to code in C or assembly, languages which give you a huge amount of control over individual bits and operations, but require you to do everything yourself.
+
+  B) "systems programmers" - these guys make desktop software, and operating systems.  I'll also include smart phone developers here.  You see people programming in C++ and C# (esp. Windows), Objective-C and Cocoa (almost exclusively Mac and IOS); and Java (Android).  Sometimes you're coding stuff people can see, like GUIs - buttons and forms, choose a file, Word Processors, etc.  Most of the time you're coding functional logic, the "engine" that nobody sees until something goes wrong and an opaque "Error 123302" pops up.  Sorting numbers, moving data in and out of various abstractions (trees, lists, objects, queues, "boxing and unboxing").  You can often think in terms of a single computer, though depending on need and interest you may also work on massively parallel server farms as well.
+
+  C) "web programmers" - these guys tend to write the so called "backends" for websites.  They may take umbrage at being split off from the systems programmers - the biggest websites, like Google or Amazon, really employ systems programmers to handle most of their operations.  But at smaller websites things have a radically different feel. These guys are very often on a linux or unix terminal, and code in languages like Perl, PHP, Python, Ruby, Asp, Cold Fusion: languages which make it very quick to write something that works, but without giving you a lot of control over specifics.  They spend a lot of time moving data between computers; user's computer to the front end server; front end server to the back end server; back end server to the database; reverse all that; call over to twitter or facebook's servers to get a picture or log someone in/o... (more)
+Upvote146DownvoteComments2
+Share
+Rahul Shelke
+Rahul Shelke, Open source enthusiast with experience on Software Architecture Design & BI Dev.
+36.3k Views · Rahul has 30+ answers in Learning to Program
+Originally Answered: How can I quickly become a good programmer?
+I wont add much here, since there are lot of good answers to your questions and doubts, especially answer by Abhineet Swain, read it several times till you get each and every point.
+
+I am assuming you want to be a good programmer and not the one expected by most of the well known Service industries. So, do not bother about which language is most used or any new language to learn to prepare. Instead start implementing few smaller snippets as you come across in any of the programming language you know. Look for smaller problems surrounded to you. You might want to start from simple mathematical concepts, like prime number generations and to a complex solutions like reverse indexing, inverted indexes, etc. Do push your limits every time. Do not just hold book and read it. Instead solve as many as problems, and some time you may find the last solution to a problem can be improved or redesigned with efficiency, and when you realize this at that point of time you have crossed a first mile which majority of people can not even dare to start. So, just go on doing rather than reading.
+
+And last but not least start participating in online forums and question and answer sites for Computer Science like Stack Overflow, Programming and Web Development Help | DreamInCode.net, geeklist.
+
+From learning perspective refer these points:
+Learn Pure Mathematics concepts like Number Theory, Discrete Structures, statistics, etc.
+Focus on learning Algorithms and Data structures. Learn all possible algorithm concepts including searching techniques like Inverted Indexing, Reverse indexing, etc.
+Learn about any of the source version systems like GIT, SVN, etc. (Most Important)
+Participate into hackathones whenever possible, they will give you ex-poser to real world problems as well as make you socialize with the development community.
+
+For getting number of good problems which will give you great understanding of algorithms, data structures, improving understanding of basic concepts of computer science which you probably have read already, as well as prepare yourself with good coding skills for jobs go to CodeEval - Evaluations Made Easy. Implement every possible problem on codeeval ranging from simplle, medium and hard category. Most of them are real questions used by companies like facebook, bittorrent, etc. for their hiring processed. This will be a best coice to start your journey, as well as will give you recognition into world wide programmers listing.
+
+FYI: Learn means implement and understand and not just merely read.
+
+All the Best!
+Written Feb 19, 2014 · View Upvotes
+Upvote60DownvoteComment1
+Share
+Ken Mazaika
+Ken Mazaika, CTO, Co-founder & Mentor @ thefirehoseproject.com
+17k Views · Most Viewed Writer in Learning to Program with 60+ answers
+Originally Answered: How could I be a good programmer? How should I start?
+What even is a good programmer?  Maybe you're thinking of a programmer you know, who works for a fancy company coding all day.  How come he's good?
+
+The fact is - there's only one way to become a good programmer - and you're going to hate the answer.
+
+To be a good programmer you need to get used to being metaphorically punched in the face a bunch of times and keep coming up for more like one of those balloon clown punching dolls.
+
+
+
+Here are a few hard facts of life about becoming a programmer.
+
+Programming is hard and you're never going to be any good at it.  Well that's not quite true, but there will always be someone who is better than you.  Right now, maybe you think your buddy who has a job as a developer is a good developer.
+
+In a couple years, when you're working at a different company as a developer, you'll probably have a co-worker who is way better than you.  Seriously, your buddy from years ago will be a bush-league developer compared to this guy.
+
+Then maybe that guy quits and moves on to a different company and you step up to take on his responsibility.  You find it challenging at first, but are up for the challenge and before you know it that guy who you idolized was just "yeah, they're pretty good".
+
+But then you'll go to a programming conference and realize there's dozens of people who make you look like a fumbling idiot.
+
+The fact of the matter is there is no such thing as a good programmer - and comparing yourself to other people will only set yourself up to be miserable.  You always can become a better programmer.
+
+Find people who you respect and learn from them.  And be ok not being the smartest person in the room.
+
+Programming is hard and you will never be as frustrated as you are when you're doing it.  I've personally seen a good developer - better than I was at the time - seriously lose their shit while programming.  I literally saw a grown adult take a ruler, snap it in half, throw it to ground, slam their laptop shut and walk away from their desk.
+
+I think every programmer can empathize with this guy:
+
+
+The reason programming can be so frustrating is that there are many problems you'll encounter that you will KNOW are solvable, but you will have NO IDEA how to solve them.  As a programmer, figuring stuff out through trial-and-error is pretty normal.  
+
+There will be problems that will take you hours to figure out, that someone who knows the magic incantation can do in minutes.  And facing a problem and having no idea if it will take you minutes or hours is pretty normal.
+
+Programming is hard and you're going to write some seriously awful code in your life.  When you're first learning to code, you'll probably write a lot of pretty good code.  Maybe a little bad code - but you have no idea the mess that is awaiting for you at your first job.
+
+Given deadlines, product managers and complex features of the apps in the real world the programmers who have built the initial product likely made a few "Temporary Workarounds" (aka: horrible hacks) that you'll need to comfortable working with.
+
+But rest assured - there is another side to the coin - which is a bit brighter.
+
+Every single day you can improve your skill at the craft.  Coding can be addicting.  It's like crack or video games.  The fact that you can become tangibly better at something you care about makes it incredibly rewarding to level-up your skill.
+
+Programming is hard and this means that skill actually matters.  Eventually things that today you find challenging will be second nature and easy for you.
+ 
+You'll probably find yourself spending a certain percentage of your time programming things in your comfort-zone and very easy for you.  Eventually the balance of doing stuff that you're already good at and things that are challenging for you will keep your confidence up and engaged in continuing to master the craft.
+
+Programming is evolving incredibly quickly.  Since things in programming are evolving so quickly there is always more to learn.  This means if you get bored of working with one technology you can always pick-up something else.
+
+There's no right away to start.  Just jump in and go.  Programming is a life-long learning process and everyone is introduced to it in a different way.  Rest assured that every day you'll grow as a developer.
+
+Programming is something you'll learn by doing - so just start right away.  Find some tutorial or a book or really anything and code follow along by coding on your computer.
+
+If you liked this post I wrote a related post on Quora here:
+
+How do I learn programming as a beginner?
+
+If you liked my answer, it would mean a lot to me if you upvoted it, by pressing the light blue button below.
+Written Nov 20, 2015 · View Upvotes
+Upvote157DownvoteComment1
+Share
+Muhammad Zaheer
+Muhammad Zaheer, SEECS'17
+15.8k Views
+Originally Answered: What are the tricks on how to become a good programmer?
+If you want to be good at something, do it everyday. Getting good at programming requires persistence. Some key suggestions right off the top of my head are: 
+Master algorithms and data structures. Good way to learn is to commit yourself to a MOOC. Be an active student by completing exercises and programming assignments. Princeton's Algorithms 1 and 2 on coursera (https://www.coursera.org/) are my personal favourite.
+Regularly participate in programming competitions. Popular platforms include HackerRank and topcoder. They would cement your algorithmic thinking.
+Contribute to open source projects on github (https://github.com/). You could start off by documenting code, writing tutorials and finding and resolving bugs. Reading a large codebase would give you some perspective on how things work in the real world.
+If you're a student at a university, do an internship with a professor which involves programming. It would give you a lot of confidence. BONUS: Your work might get published
+Now its time to give back. Help others by contributing on platforms like stackoverflow. You'll actually be helping yourself  by reading and debugging someone else's code  and learning a lot of subtle things in the process.
+
+Disclaimer: I'm not an expert, I'm using this recipe myself. 
+
+Best of luck. Happy Coding.
+Written Jun 15, 2015 · View Upvotes
+Upvote43DownvoteComment1
+Share
+There's more on Quora...
+Pick new people and topics to follow and see the best answers on Quora.
+Update Your Interests
+Related Questions
+
+How can I become an elite programmer?
+How can a 24 year old IITian not so good with coding can become a better than average programmer within a time span of 2 months?
+How do I become a top programmer?
+I want to become a good computer programmer but I don't know English. Can I become a computer programmer?
+How does a programmer become a good teacher?
+To become a good programmer, is it necessary write code above 100 lines per day?
+How does one become a genius programmer?
+How long would it take me to become a programmer?
+What motivated you to become a programmer?
+How did you become a programmer?
+More Related Questions
+Question Stats
+
+2,482 Followers
+754,355 Views
+Last Asked Jul 20
+156 Merged Questions
+Edits
+Top Stories from Your Feed
+Read In Feed
+Popular on Quora
+Why is everyone into Tesla lately?
+Andrius Adamonis
+Andrius Adamonis, Different view into car market.
+235.7k Views
+
+I think many people don't realise what we are witnessing at the moment. Let me give you an example.The smartphone market was completely different till one phone shook the market. Do you know which ...
+Read In Feed
+Popular on Quora
+Should it be OK for starving people to steal food?
+Jonathan Sadikin
+Jonathan Sadikin
+236.9k Views
+There is an interesting case in my country, Indonesia, a few years back. An elderly woman was caught stealing cocoa from a plantation near her village. The plantation owner happens to be a big coco...
+Read In Feed
+Popular on Quora
+Have you ever caught someone talking about you in another language?
+Gisella Famà
+Gisella Famà, Italian and English are both my first languages...
+801.8k Views · Most Viewed Writer in Language
+Yes. During my honeymoon, in one of my languages.My husband and I were looking forward to trying the Japanese restaurant in our resort in Antigua.For our disgrace we get seated with 3 loud couples ...
+
+

@@ -1,0 +1,287 @@
+Stack Exchange Inbox Reputation and Badges sign up log in tour help  
+
+Search Q&A
+
+Stack Overflow
+Questions
+ 
+Jobs
+ 
+Documentation
+ 
+Tags
+ 
+Users
+ 
+Badges
+ 
+Ask Question
+Dismiss
+Announcing Stack Overflow Documentation
+We started with Q&A. Technical documentation is next, and we need your help.
+
+Whether you're a beginner or an experienced developer, you can contribute.
+
+Sign up and start helping →  Learn more about Documentation →
+How to catch duplicates entries in text file in linux
+
+
+up vote
+13
+down vote
+favorite
+3
+Text file:
+
+1 1
+2 2
+3 3
+1 1
+I want to catch global like 1 1 are dublicated now of one row or another
+
+linux grep
+shareimprove this question
+edited Oct 5 '12 at 9:56
+
+Akhil Thayyil
+6,43151736
+asked Oct 5 '12 at 9:53
+
+Kalin Borisov
+4381414
+add a comment
+3 Answers
+active oldest votes
+up vote
+46
+down vote
+accepted
+Your question is not quite clear, but you can filter out duplicate lines with uniq:
+
+sort file.txt | uniq
+or simply
+
+sort -u file.txt
+(thanks RobEarl)
+
+You can also print only repeating lines with
+
+sort file.txt | uniq -d
+shareimprove this answer
+edited Aug 9 '15 at 18:06
+answered Oct 5 '12 at 9:57
+
+Lev Levitsky
+32.4k864104
+1         
+sort -u file.txt would also filter out duplicates – RobEarl Oct 5 '12 at 20:45
+           
+actually that works for me sort file.txt | uniq -d Thank, Lev – Kalin Borisov Oct 8 '12 at 7:10 
+1         
+@KalinBorisov No problem. Keep in mind that you can accept helpful answers. – Lev Levitsky Oct 8 '12 at 8:10 
+           
+I will keep in mind thank you, Lev. – Kalin Borisov Oct 8 '12 at 10:53
+           
+Great...Sweet ! – Nayeem Aug 9 '15 at 17:11
+add a comment
+
+up vote
+1
+down vote
+One way using GNU awk:
+
+awk 'array[$0]++' file.txt 
+Results:
+
+1 1
+shareimprove this answer
+answered Oct 5 '12 at 11:39
+
+Steve
+24.2k54468
+add a comment
+up vote
+0
+down vote
+You can use it easily:
+
+sort -u file.txt
+OR
+
+awk '!x[$0]++' file.txt
+shareimprove this answer
+answered Jul 21 '14 at 19:13
+
+MLSC
+2,75211444
+add a comment
+Your Answer
+
+
+ 
+Sign up or log in
+
+Sign up using Google
+Sign up using Facebook
+Sign up using Email and Password
+Post as a guest
+
+Name
+
+Email
+
+required, but never shown
+ Post Your Answer
+By posting your answer, you agree to the privacy policy and terms of service.
+
+Not the answer you're looking for?    Browse other questions tagged linux grep or ask your own question.
+
+asked
+
+3 years ago
+
+viewed
+
+33039 times
+
+active
+
+12 months ago
+
+
+Work from anywhere
+Developer Success Engineer
+Auth0Buenos Aires, Argentina
+REMOTE
+javascriptnode.js
+Java Developer (security focus)
+WalletHubWashington, DC
+REMOTE
+mysqljava
+Experienced Backend Developer
+CitrusbyteLos Angeles, CA
+REMOTERELOCATION
+reactjsruby
+Experienced Frontend Engineer
+CitrusbyteNo office location
+REMOTERELOCATION
+javascriptreactjs
+Get the weekly newsletter! In it, you'll get:
+
+The week's top questions and answers
+Important community announcements
+Questions that need answers
+Sign up for the newsletter
+see an example newsletter
+
+Linked
+
+-4
+How can I find any repeated duplication in my file
+Related
+
+66
+How do you search for files containing dos line endings (CRLF) with grep on Linux?
+39
+linux shell script to add leading zeros to file names
+423
+How can I use grep to show just filenames (no in-line matches) on linux?
+310
+Grep, but only certain file extensions
+1508
+Finding all files containing a text string on Linux
+1
+how to find all strings matching a pattern in linux
+2
+how to search for files in a directory containing mulitple strings in linux
+0
+Copy a part of f06 file to a new text file
+1
+Locating content in File on Linux system
+0
+finding number of occurences in large text file in linux
+Hot Network Questions
+
+Can I use the FFT to recognize musical notes on a piano?
+how to create a pdf with a transparent background
+replacing raid hard drives before failure (3 years old!)
+Where did the missing forms of nemo go?
+How to 'rm' or 'mv' a range of files such as file01.txt, file02.txt...file85.txt
+What is pixel aspect ratio?
+Copying the email address to a forgotten password page
+Side length of square inside a triangle
+What is the meaning for a Dark Blue Pokestop?
+A square of text
+Word or phrase to describe slacking because you think you already know everything
+What is this flag?
+Print a 10 by 10 grid of asterisks
+Small fppf/smooth sites
+Could a candle theoretically melt iron?
+Need guidance on how to navigate Istanbul Atatürk Airport (IST)
+Who committed the crime?
+One particular part number not showing up on Eagle board layout
+Why does Watney’s notebook in The Martian have four holes?
+How do C++ games handle memory allocation failure?
+Find the winning (shortest) path
+How can there be weight without movement?
+Triads in Music Theory
+Diagnosing an engine oil leak
+question feed
+about us tour help blog chat data legal privacy policy work here advertising info mobile contact us feedback
+TECHNOLOGY    LIFE / ARTS    CULTURE / RECREATION    SCIENCE    OTHER
+Stack Overflow
+Server Fault
+Super User
+Web Applications
+Ask Ubuntu
+Webmasters
+Game Development
+TeX - LaTeX
+Programmers
+Unix & Linux
+Ask Different (Apple)
+WordPress Development
+Geographic Information Systems
+Electrical Engineering
+Android Enthusiasts
+Information Security
+Database Administrators
+Drupal Answers
+SharePoint
+User Experience
+Mathematica
+Salesforce
+ExpressionEngine® Answers
+more (13)
+Photography
+Science Fiction & Fantasy
+Graphic Design
+Movies & TV
+Seasoned Advice (cooking)
+Home Improvement
+Personal Finance & Money
+Academia
+more (9)
+English Language & Usage
+Skeptics
+Mi Yodeya (Judaism)
+Travel
+Christianity
+Arqade (gaming)
+Bicycles
+Role-playing Games
+more (21)
+Mathematics
+Cross Validated (stats)
+Theoretical Computer Science
+Physics
+MathOverflow
+Chemistry
+Biology
+more (5)
+Stack Apps
+Meta Stack Exchange
+Area 51
+Stack Overflow Careers
+site design / logo © 2016 Stack Exchange Inc; user contributions licensed under cc by-sa 3.0 with attribution required
+rev 2016.8.5.3867
