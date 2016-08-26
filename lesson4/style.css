@@ -1,6 +1,3 @@
 .box-poem {
-  float: left;
-}
-.footer {
-  clear: left;
+  column-count: 2;
 }
