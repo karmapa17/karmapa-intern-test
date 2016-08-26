@@ -1,5 +1,6 @@
 .box-poem {
-  display: inline-block;
-  width: 600px;
-  vertical-align: top;
+  float: left;
+}
+.footer {
+  clear: left;
 }
