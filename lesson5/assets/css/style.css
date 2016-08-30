@@ -53,3 +53,16 @@
   background-image: -webkit-linear-gradient(top, #d9d9d9, #d0d0d0);
   border: 1px solid #b6b6b6;
 }
+
+.calculator .button.primary {
+  background-color: #4d90fe;
+  background-image: -webkit-linear-gradient(top, #4d90fe, #4787ed);
+  border: 1px solid #3079ed;
+  color: white;
+}
+
+.calculator .button.primary:hover {
+  background-color: #4d90fe;
+  background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8);
+  border: 1px solid #2f5bb7;
+}
