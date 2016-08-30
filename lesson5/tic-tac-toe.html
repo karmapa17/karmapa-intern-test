@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
+  <link rel="stylesheet" href="assets/css/tic-tac-toe.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <div id="wrapper" class="wrapper">
+    <div class="scoreboard">
+      <div data-index="0" class="piece">
+        <span class="player-symbol"></span>
+        <span class="score">0</span>
+      </div>
+      <div data-index="1" class="piece">
+        <span class="player-symbol"></span>
+        <span class="score">0</span>
+      </div>
+    </div>
+    <p class="message"></p>
+    <div class="board-tic-tac-toe">
+      <table class="tic-tac-toe">
+        <tr>
+          <td class="cell1" data-pos="1"></td>
+          <td class="cell2" data-pos="2"></td>
+          <td class="cell3" data-pos="3"></td>
+        </tr>
+        <tr>
+          <td class="cell4" data-pos="4"></td>
+          <td class="cell5" data-pos="5"></td>
+          <td class="cell6" data-pos="6"></td>
+        </tr>
+        <tr>
+          <td class="cell7" data-pos="7"></td>
+          <td class="cell8" data-pos="8"></td>
+          <td class="cell9" data-pos="9"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script src="assets/js/tic-tac-toe.js"></script>
+</body>
+</html>
