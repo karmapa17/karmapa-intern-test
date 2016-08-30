@@ -4,6 +4,7 @@
   var input = document.getElementById('input');
   var isShowingResult = false;
 
+  calculator.addEventListener('click', handleCalculatorClick, false);
 
   function handleCalculatorClick(event) {
 
