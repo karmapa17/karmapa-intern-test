@@ -36,6 +36,12 @@
   width: 22%;
 }
 
+.calculator .button:hover {
+  background-color: #f8f8f8;
+  background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+  border: 1px solid #c6c6c6;
+}
+
 .calculator .button.sp {
   background-color: #d6d6d6;
   background-image: -webkit-linear-gradient(top, #d6d6d6, #d0d0d0);
@@ -46,10 +52,4 @@
   background-color: #d9d9d9;
   background-image: -webkit-linear-gradient(top, #d9d9d9, #d0d0d0);
   border: 1px solid #b6b6b6;
-}
-
-.calculator .button:hover {
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
-  border: 1px solid #c6c6c6;
 }
