@@ -41,7 +41,7 @@
     this.playerIndex = 0;
     this.turn = 0;
     this.playerRecords = [0, 0];
-    this.playerSymbols = ['O', 'X'] || args.playerSymbols;
+    this.playerSymbols = args.playerSymbols || ['O', 'X'];
     this.boardDisabled = false;
     this.winnerLinePosArr = [];
     this.finished = false;
