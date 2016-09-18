@@ -15,7 +15,7 @@
     args = args || {};
     this.id = args.id;
     this.width = args.width || 8;
-    this.height = args.width || 8;
+    this.height = args.height || 8;
     this.minesCount = args.minesCount || 10;
     this.cells = {};
     this.timeInSec = 0;
@@ -56,9 +56,9 @@
 
   Mineweeper.prototype.createRows = function() {
     var rows = [];
-    for (var y = 0; y < this.width; y++) {
+    for (var y = 0; y < this.height; y++) {
       var row = document.createElement('tr');
-      for (var x = 0; x < this.height; x++) {
+      for (var x = 0; x < this.width; x++) {
         var td = document.createElement('td');
         td.setAttribute('data-cell', true);
         td.setAttribute('data-x', x);
@@ -94,7 +94,15 @@
     }
   };
 
+  Mineweeper.prototype.checkMinesCount = function() {
+    if (this.minesCount > ((this.width - 1) * (this.height - 1))) {
+      throw 'Mines count ' + this.minesCount + ' is not allowed.';
+    }
+  };
+
   Mineweeper.prototype.init = function(id) {
+
+    this.checkMinesCount();
 
     var div = document.getElementById(id);
     div.className = 'minesweeper';
@@ -298,5 +306,19 @@
   }
 
   var m1 = new Mineweeper({id: 'm1'});
+
+  /*var m1 = new Mineweeper({
+    id: 'm1',
+    width: 16,
+    height: 16,
+    minesCount: 40
+  });*/
+
+  /*var m1 = new Mineweeper({
+    id: 'm1',
+    width: 30,
+    height: 16,
+    minesCount: 99
+  });*/
 
 })();
