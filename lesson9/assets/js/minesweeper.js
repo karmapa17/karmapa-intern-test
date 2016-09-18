@@ -11,6 +11,32 @@
     {deltaX: 1, deltaY: 1}
   ];
 
+  function Cell(args) {
+    this.x = args.x;
+    this.y = args.y;
+    this.flagged = false;
+    this.isClicked = false;
+    this.isMine = false;
+    this.dom = args.dom;
+  }
+
+  Cell.prototype.styleClicked = function(areaMinesCount) {
+    var target = this.dom;
+    target.classList.add('pushed');
+    if (areaMinesCount > 0) {
+      target.classList.add('c' + areaMinesCount);
+      target.textContent = areaMinesCount;
+    }
+  };
+
+  Cell.prototype.set = function(data) {
+    var self = this;
+    Object.keys(data).forEach(function(key) {
+      var value = data[key];
+      self[key] = value;
+    });
+  };
+
   function Mineweeper(args) {
     args = args || {};
     this.id = args.id;
@@ -67,7 +93,7 @@
           x: x,
           y: y,
           flagged: false,
-          isPushed: false,
+          isClicked: false,
           isMine: false,
           dom: td
         });
@@ -138,7 +164,7 @@
   };
 
   Mineweeper.prototype.setCell = function(x, y, data) {
-    return this.cells[x + ':' + y] = data;
+    return this.cells[x + ':' + y] = new Cell(data);
   };
 
   Mineweeper.prototype.getCell = function(x, y) {
@@ -152,15 +178,6 @@
       }).length;
   };
 
-  Mineweeper.prototype.stylePushed = function(x, y, areaMinesCount) {
-    var target = this.getCell(x, y).dom;
-    target.classList.add('pushed');
-    if (areaMinesCount > 0) {
-      target.classList.add('c' + areaMinesCount);
-      target.textContent = areaMinesCount;
-    }
-  };
-
   Mineweeper.prototype.getSurroundedCells = function(targetX, targetY) {
     var self = this;
     return SCAN_COORDS.map(function(row) {
@@ -172,20 +189,17 @@
       return !! cell;
     })
     .filter(function(cell) {
-      return ! cell.isPushed;
+      return ! cell.isClicked;
     });
-  };
-  Mineweeper.prototype.setPushed = function(x, y) {
-    var cell = this.getCell(x, y);
-    cell.isPushed = true;
   };
 
   Mineweeper.prototype.clearClickArea = function(x, y) {
     var self = this;
     var areaMinesCount = this.getAreaMinesCount(x, y);
 
-    this.stylePushed(x, y, areaMinesCount);
-    this.setPushed(x, y);
+    var clickedCell = this.getCell(x, y);
+    clickedCell.isClicked = true;
+    clickedCell.styleClicked(areaMinesCount);
 
     if (0 === areaMinesCount) {
       this.getSurroundedCells(x, y)
@@ -210,7 +224,7 @@
     Object.keys(cells)
       .forEach(function(key) {
         var cell = cells[key];
-        cell.isPushed = false;
+        cell.isClicked = false;
         cell.flagged = false;
         cell.isMine = false;
         var target = cell.dom;
@@ -253,7 +267,7 @@
     var cells = this.cells;
     return Object.keys(cells).filter(function(key) {
       var cell = cells[key];
-      return ! cell.isPushed;
+      return ! cell.isClicked;
     }).length === this.minesCount;
   };
 
@@ -281,7 +295,7 @@
       return;
     }
 
-    if (markFlag && (! cell.isPushed)) {
+    if (markFlag && (! cell.isClicked)) {
       cell.flagged = ! cell.flagged;
       this.markFlag(cell);
       return;
