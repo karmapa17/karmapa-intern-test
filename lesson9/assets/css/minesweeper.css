@@ -1,0 +1,57 @@
+.minesweeper .table {
+  border-collapse: collapse;
+  background-color: #bdbdbd;
+}
+
+.minesweeper .cell {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  background-color: #ececec;
+  border: 4px solid #a29c9c;
+  text-align: center;
+}
+
+.minesweeper .cell.flagged:after {
+  content: '⚑';
+}
+.minesweeper .cell.pushed {
+  background-color: #bdbdbd;
+  border: 4px solid #a29c9c;
+}
+.minesweeper .cell.pushed.is-mine:after {
+  content: '☀';
+}
+.minesweeper .cell.pushed.c1 {
+  color: blue;
+}
+.minesweeper .cell.pushed.c2 {
+  color: green;
+}
+.minesweeper .cell.pushed.c3 {
+  color: red;
+}
+.minesweeper .cell.pushed.c4 {
+  color: darkblue;
+}
+.minesweeper .cell.pushed.c5 {
+  color: brown;
+}
+
+.minesweeper .flag-pad,
+.minesweeper .face-pad,
+.minesweeper .time-pad {
+  display: inline-block;
+}
+
+.minesweeper .score-board {
+  padding-bottom: 7px;
+  padding-bottom: 7px;
+}
+
+.minesweeper .face-pad {
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+}
