@@ -29,6 +29,16 @@
     }
   };
 
+  Cell.prototype.toggleFlag = function() {
+    var target = this.dom;
+    if (this.flagged) {
+      target.classList.add('flagged');
+    }
+    else {
+      target.classList.remove('flagged');
+    }
+  };
+
   Cell.prototype.set = function(data) {
     var self = this;
     Object.keys(data).forEach(function(key) {
@@ -253,16 +263,6 @@
     return false;
   };
 
-  Mineweeper.prototype.markFlag = function(cell) {
-    var target = cell.dom;
-    if (cell.flagged) {
-      target.classList.add('flagged');
-    }
-    else {
-      target.classList.remove('flagged');
-    }
-  };
-
   Mineweeper.prototype.hasWinner = function() {
     var cells = this.cells;
     return Object.keys(cells).filter(function(key) {
@@ -297,7 +297,7 @@
 
     if (markFlag && (! cell.isClicked)) {
       cell.flagged = ! cell.flagged;
-      this.markFlag(cell);
+      cell.toggleFlag();
       return;
     }
 
