@@ -39,6 +39,24 @@
     }
   };
 
+  Cell.prototype.reset = function() {
+
+    var target = this.dom;
+    target.classList.remove('flagged');
+    target.classList.remove('pushed');
+    target.classList.remove('is-mine');
+    target.classList.remove('c1');
+    target.classList.remove('c2');
+    target.classList.remove('c3');
+    target.classList.remove('c4');
+    target.classList.remove('c5');
+    target.textContent = '';
+
+    this.isClicked = false;
+    this.flagged = false;
+    this.isMine = false;
+  };
+
   Cell.prototype.set = function(data) {
     var self = this;
     Object.keys(data).forEach(function(key) {
@@ -233,20 +251,7 @@
     var cells = this.cells;
     Object.keys(cells)
       .forEach(function(key) {
-        var cell = cells[key];
-        cell.isClicked = false;
-        cell.flagged = false;
-        cell.isMine = false;
-        var target = cell.dom;
-        target.classList.remove('flagged');
-        target.classList.remove('pushed');
-        target.classList.remove('is-mine');
-        target.classList.remove('c1');
-        target.classList.remove('c2');
-        target.classList.remove('c3');
-        target.classList.remove('c4');
-        target.classList.remove('c5');
-        target.textContent = '';
+        cells[key].reset();
       });
     this.setRandomMines();
   };
