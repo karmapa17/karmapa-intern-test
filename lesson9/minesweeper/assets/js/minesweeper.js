@@ -1,5 +1,7 @@
 (function() {
 
+  var KEY_H = 72;
+
   var SCAN_COORDS = [
     {deltaX: -1, deltaY: -1},
     {deltaX: 0, deltaY: -1},
@@ -17,6 +19,8 @@
     this.flagged = false;
     this.isClicked = false;
     this.isMine = false;
+    this.isStarted = false;
+    this.timePadTimer = null;
     this.dom = args.dom;
   }
 
@@ -74,6 +78,9 @@
     this.cells = {};
     this.timeInSec = 0;
     this.isDisabled = false;
+    this.flagCount = this.minesCount;
+
+    this.isHackingMode = false;
 
     this.init(this.id);
   }
@@ -106,6 +113,11 @@
     board.appendChild(this.timePad);
 
     return board;
+  };
+
+  Mineweeper.prototype.updateFlagPad = function() {
+    console.log('called', this.flagCount);
+    this.flagPad.textContent = this.flagCount;
   };
 
   Mineweeper.prototype.createRows = function() {
@@ -177,6 +189,15 @@
     table.addEventListener('contextmenu', this._handleTableRightClick.bind(this), false);
 
     this.setRandomMines();
+
+    window.addEventListener("keydown", this._handleKeyDown.bind(this), false);
+  };
+
+  Mineweeper.prototype._handleKeyDown = function(event) {
+    if (event.keyCode === KEY_H) {
+      this.isHackingMode = ! this.isHackingMode;
+      this.isHackingMode ? this.showMines() : this.hideMines();
+    }
   };
 
   Mineweeper.prototype.showMines = function() {
@@ -187,6 +208,18 @@
         if (row.isMine) {
           row.dom.classList.add('is-mine');
           row.dom.classList.add('pushed');
+        }
+      });
+  };
+
+  Mineweeper.prototype.hideMines = function() {
+    var cells = this.cells;
+    Object.keys(cells)
+      .forEach(function(key) {
+        var row = cells[key];
+        if (row.isMine) {
+          row.dom.classList.remove('is-mine');
+          row.dom.classList.remove('pushed');
         }
       });
   };
@@ -286,11 +319,25 @@
     this.isDisabled = true;
   };
 
+  Mineweeper.prototype.updateTimePad = function() {
+    this.timePad.textContent = ++(this.timeInSec);
+  };
+
+  Mineweeper.prototype.stopTimePad = function() {
+    clearInterval(this.timePadTimer);
+  };
+
   Mineweeper.prototype._handleCellClick = function(target, markFlag) {
 
     if (this.isDisabled) {
       return;
     }
+
+    if (! this.isStarted) {
+      this.timePadTimer = setInterval(this.updateTimePad.bind(this), 1000);
+    }
+
+    this.isStarted = true;
 
     var x = parseInt(target.getAttribute('data-x'), 10);
     var y = parseInt(target.getAttribute('data-y'), 10);
@@ -303,18 +350,29 @@
     if (markFlag && (! cell.isClicked)) {
       cell.flagged = ! cell.flagged;
       cell.toggleFlag();
+
+      if (cell.flagged) {
+        this.flagCount--;
+      }
+      else {
+        this.flagCount++;
+      }
+
+      this.updateFlagPad();
       return;
     }
 
     if (cell.isMine) {
       this.showMines();
       this.lose();
+      this.stopTimePad();
     }
     else {
       this.clearClickArea(x, y);
     }
     if (this.hasWinner()) {
       this.win();
+      this.stopTimePad();
     }
   };
 
@@ -324,14 +382,14 @@
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  var m1 = new Mineweeper({id: 'm1'});
+ // var m1 = new Mineweeper({id: 'm1'});
 
-  /*var m1 = new Mineweeper({
+  var m1 = new Mineweeper({
     id: 'm1',
     width: 16,
     height: 16,
     minesCount: 40
-  });*/
+  });
 
   /*var m1 = new Mineweeper({
     id: 'm1',
