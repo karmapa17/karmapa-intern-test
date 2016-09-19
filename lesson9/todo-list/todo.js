@@ -96,7 +96,9 @@
   };
 
   Todo.prototype._handleFormSubmit = function(event) {
+
     event.preventDefault();
+    event.stopPropagation();
 
     var input = this.input;
     var value = input.value;
@@ -134,6 +136,8 @@
   };
 
   Todo.prototype._handleButtonAllClick = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
     this.filter = TYPE_ALL;
     this.renderRows();
   };
@@ -144,11 +148,15 @@
   };
 
   Todo.prototype._handleButtonCompletedClick = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
     this.filter = TYPE_COMPLETED;
     this.renderRows();
   };
 
   Todo.prototype._handleButtonClearCompletedClick = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
     this.todos = this.todos.filter(function(todo) {
       return ! todo.completed;
     });
