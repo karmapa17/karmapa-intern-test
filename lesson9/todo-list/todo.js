@@ -4,11 +4,24 @@
   var TYPE_ACTIVE = 'active';
   var TYPE_COMPLETED = 'completed';
 
+  function Store(id) {
+    this.id = id;
+  }
+
+  Store.prototype.set = function(prop, value) {
+    localStorage.setItem(prop, JSON.stringify(value));
+  };
+
+  Store.prototype.get = function(prop) {
+    return JSON.parse(localStorage.getItem(prop));
+  };
+
   function Todo(args) {
     args = args || {};
 
     this.id = args.id;
-    this.todos = [];
+    this.store = new Store(this.id);
+    this.todos = this.store.get('todos') || [];
     this.filter = TYPE_ALL;
 
     this.init(this.id);
@@ -29,6 +42,8 @@
     this.buttonActive.addEventListener('click', this._handleButtonActiveClick.bind(this), false);
     this.buttonCompleted.addEventListener('click', this._handleButtonCompletedClick.bind(this), false);
     this.buttonClearCompleted.addEventListener('click', this._handleButtonClearCompletedClick.bind(this), false);
+
+    this.renderRows();
   };
 
   Todo.prototype.addTodo = function(text) {
@@ -37,6 +52,7 @@
       text: text,
       completed: false
     });
+    this.store.set('todos', this.todos);
   };
 
   Todo.prototype.createTodoDiv = function(row) {
@@ -116,6 +132,7 @@
     this.todos = this.todos.filter(function(todo) {
       return todo.id !== id;
     });
+    this.store.set('todos', this.todos);
   };
 
   Todo.prototype._handleDeleteButtonClick = function(id, div, event) {
@@ -160,6 +177,7 @@
     this.todos = this.todos.filter(function(todo) {
       return ! todo.completed;
     });
+    this.store.set('todos', this.todos);
     this.renderRows();
   };
 
