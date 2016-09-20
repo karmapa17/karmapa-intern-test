@@ -287,6 +287,10 @@
         cells[key].reset();
       });
     this.setRandomMines();
+    this.stopTimePad();
+    this.timeInSec = 0;
+    this.isStarted = false;
+    this.updateTimePad(this.timeInSec);
   };
 
   Mineweeper.prototype._handleFaceClick = function() {
@@ -319,8 +323,8 @@
     this.isDisabled = true;
   };
 
-  Mineweeper.prototype.updateTimePad = function() {
-    this.timePad.textContent = ++(this.timeInSec);
+  Mineweeper.prototype.updateTimePad = function(timeInSec) {
+    this.timePad.textContent = timeInSec;
   };
 
   Mineweeper.prototype.stopTimePad = function() {
@@ -334,7 +338,9 @@
     }
 
     if (! this.isStarted) {
-      this.timePadTimer = setInterval(this.updateTimePad.bind(this), 1000);
+      this.timePadTimer = setInterval(function() {
+        this.updateTimePad(++this.timeInSec);
+      }.bind(this), 1000);
     }
 
     this.isStarted = true;
