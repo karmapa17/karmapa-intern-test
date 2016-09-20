@@ -38,12 +38,15 @@
     this.buttonCompleted = form.querySelector('[data-button-completed]');
     this.buttonClearCompleted = form.querySelector('[data-button-clear-completed]');
 
+    this.filterButtons = [this.buttonAll, this.buttonActive, this.buttonCompleted];
+
     this.buttonAll.addEventListener('click', this._handleButtonAllClick.bind(this), false);
     this.buttonActive.addEventListener('click', this._handleButtonActiveClick.bind(this), false);
     this.buttonCompleted.addEventListener('click', this._handleButtonCompletedClick.bind(this), false);
     this.buttonClearCompleted.addEventListener('click', this._handleButtonClearCompletedClick.bind(this), false);
 
     this.renderRows();
+    this.updateFilterButtons();
   };
 
   Todo.prototype.addTodo = function(text) {
@@ -58,6 +61,13 @@
   Todo.prototype.createTodoDiv = function(row) {
 
     var div = document.createElement('div');
+
+    div.classList.add('todo');
+
+    if (row.completed) {
+      div.classList.add('completed');
+    }
+
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = row.completed;
@@ -65,9 +75,12 @@
     checkbox.addEventListener('click', this._handleCheckboxClick.bind(this, row.id, checkbox), false);
 
     var span = document.createElement('span');
+    span.classList.add('text');
     span.textContent = row.text;
+    span.setAttribute('title', row.text);
 
     var button = document.createElement('a');
+    button.classList.add('button-delete');
     button.textContent = '✖';
     button.href = '';
 
@@ -150,6 +163,18 @@
 
   Todo.prototype._handleCheckboxClick = function(id, checkbox, event) {
     this.setDataById(id, {completed: checkbox.checked});
+
+    var div = checkbox.parentElement;
+    checkbox.checked ? div.classList.add('completed') : div.classList.remove('completed');
+  };
+
+  Todo.prototype.updateFilterButtons = function() {
+    this.filterButtons.forEach(function(button) {
+      button.classList.remove('active');
+    });
+    var index = [TYPE_ALL, TYPE_ACTIVE, TYPE_COMPLETED].indexOf(this.filter);
+    var activeButton = this.filterButtons[index];
+    activeButton.classList.add('active');
   };
 
   Todo.prototype._handleButtonAllClick = function(event) {
@@ -157,11 +182,13 @@
     event.stopPropagation();
     this.filter = TYPE_ALL;
     this.renderRows();
+    this.updateFilterButtons();
   };
 
   Todo.prototype._handleButtonActiveClick = function(event) {
     this.filter = TYPE_ACTIVE;
     this.renderRows();
+    this.updateFilterButtons();
   };
 
   Todo.prototype._handleButtonCompletedClick = function(event) {
@@ -169,6 +196,7 @@
     event.stopPropagation();
     this.filter = TYPE_COMPLETED;
     this.renderRows();
+    this.updateFilterButtons();
   };
 
   Todo.prototype._handleButtonClearCompletedClick = function(event) {

@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+#form {
+  margin: 20px auto;
+}
+
+.todo-form {
+  width: 320px;
+}
+
+.todo-form .input-wrap {
+  white-space: nowrap;
+}
+
+.todo-form .todo-input {
+  width: 82%;
+  height: 30px;
+  outline: 0;
+}
+
+.todo-submit {
+  vertical-align: top;
+  height: 30px;
+  width: 18%;
+  background-color: #d0d0d0;
+  border: 0;
+  cursor: pointer;
+}
+
+.todo-form .box {
+  height: 220px;
+  overflow-y: auto;
+}
+
+.todo-form .box .todo {
+  white-space: nowrap;
+  border-bottom: 1px solid #ccc;
+  padding: 7px 0;
+}
+.todo-form .box .todo input[type="checkbox"] {
+  vertical-align: top;
+}
+
+.todo-form .box .todo .text {
+  max-width: 60%;
+  padding-left: 7px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.todo-form .box .todo.completed .text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.todo-form .button-delete {
+  visibility: hidden;
+  float: right;
+  text-decoration: none;
+  color: #cc9a9a;
+  margin-right: 14px;
+}
+
+.todo-form .box .todo:hover .button-delete {
+  visibility: visible;
+}
+
+.todo-form .bar button {
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  outline: 0;
+}
+
+.todo-form .bar button.active {
+  background-color: #d0d0d0;
+}
+
+.todo-form .button-clear-completed {
+  float: right;
+}
